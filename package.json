@@ -19,6 +19,7 @@
     "@mdx-js/react": "^2.3.0",
     "autoprefixer": "^10.4.19",
     "gatsby": "5.13.5",
+    "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-mdx": "5.13.1",
     "gatsby-plugin-postcss": "6.3.0",
     "gatsby-plugin-sharp": "^5.13.1",

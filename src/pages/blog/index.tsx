@@ -1,35 +1,44 @@
 import * as React from "react";
-import { Link, graphql } from "gatsby";
+import { Link, graphql, navigate, useStaticQuery } from "gatsby";
 import type { HeadFC, PageProps } from "gatsby";
+import Layout from "../../components/layout";
+import Category from "../../components/category";
 
-const BlogPage = ({ data }: { data: { allMdx: { nodes: { id: string; frontmatter: { slug: string; title: string; date: string } }[] } } }) => {
+const BlogPage = ({ data, location, pageContext }: PageProps & { data: { categories: { distinct: String[] }; posts: { nodes: { frontmatter: { slug: String; title: String } }[] } } }) => {
+  console.log(location, pageContext);
+
+
+
   return (
-    <div>
-      {data.allMdx.nodes.map((node) => (
-        <article key={node.id}>
-          <h2>
-            <Link to={`/blog/${node.frontmatter.slug}`}>{node.frontmatter.title}</Link>
-          </h2>
-          <p>Posted: {node.frontmatter.date}</p>
-        </article>
-      ))}
-    </div>
+    <Layout>
+      <p>blog 主页面</p>
+      <Category list={data.categories.distinct} />
+      <hr />
+      {data.posts.nodes.map((item) => {
+        return <div>{item.frontmatter.slug}</div>;
+      })}
+      <Link to="/blog/?page=1">1</Link>
+      <Link to="/blog/?page=2">2</Link>
+    </Layout>
   );
 };
 
 export const query = graphql`
   query {
-    allMdx(filter: { frontmatter: { title: { ne: null } } }) {
+    categories: allFile(filter: { extension: { eq: "md" }, relativeDirectory: { ne: "" } }) {
+      distinct(field: { relativeDirectory: SELECT })
+    }
+    posts: allMdx(filter: { frontmatter: { slug: { nin: ["", null] } } }, limit: 2, skip: 0) {
+      totalCount
       nodes {
         frontmatter {
           title
           slug
         }
-        id
       }
     }
   }
 `;
 
 export const Head: HeadFC = () => <title>Home Page</title>;
-export default BlogPage
+export default BlogPage;
