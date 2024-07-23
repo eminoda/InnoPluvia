@@ -1,0 +1,143 @@
+#preview {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Segoe UI";
+
+  h1 {
+    // 字体
+    @apply text-4xl;
+    @apply font-bold;
+    @apply text-neutral-800;
+
+    // 定位
+    @apply text-center;
+    @apply mb-6;
+  }
+  h2 {
+    // 字体
+    @apply text-2xl;
+    @apply font-bold;
+    @apply text-neutral-800;
+
+    // 边框
+    // @apply border-l-4;
+    @apply border-gray-200;
+    @apply border-b;
+
+    @apply rounded-sm;
+    // @apply shadow-[0px_4px_10px_2px_#d1d5db];
+
+    // 定位
+    @apply mt-6;
+    @apply mb-4;
+    // @apply pl-2;
+    @apply pr-10;
+    @apply pb-2;
+
+    &::before {
+      content: "📚";
+      @apply mr-1;
+    }
+  }
+
+  h3 {
+    // 字体
+    @apply text-lg;
+    @apply font-bold;
+    @apply text-neutral-800;
+    @apply whitespace-break-spaces;
+    @apply break-words;
+
+    // 定位
+    @apply mt-6;
+    @apply mb-4;
+
+    &::before {
+      content: "🏷️";
+      @apply mr-1;
+    }
+  }
+
+  // 正文
+  p {
+    @apply text-base;
+    @apply leading-7;
+    @apply text-slate-800;
+    @apply whitespace-break-spaces;
+    @apply break-words;
+    @apply mb-4;
+  }
+
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+  // 引用
+  blockquote {
+    @apply bg-zinc-100;
+
+    @apply border-l-4;
+    @apply border-gray-300;
+    @apply rounded-md;
+
+    @apply p-4;
+    @apply my-4;
+    p {
+      @apply mb-0;
+    }
+  }
+  a {
+    @apply text-base;
+    @apply text-sky-400;
+    @apply underline;
+    @apply underline-offset-[6px];
+    @apply decoration-2;
+    @apply decoration-sky-400;
+    @apply decoration-dashed;
+  }
+  // 加粗
+  strong {
+    @apply font-bold;
+    @apply text-neutral-950;
+  }
+  // 斜体
+  em {
+    font-style: italic;
+  }
+  // 中划线
+  s {
+    text-decoration: line-through;
+  }
+  // 图片
+  img {
+    @apply h-auto;
+    // max-width: 440px;
+    @apply max-w-[80%];
+    @apply min-w-1/5;
+    @apply rounded-md;
+    @apply m-auto;
+    @apply mt-6;
+    @apply mb-6;
+  }
+  // 列表
+  ul,
+  ol {
+    @apply text-base;
+    @apply text-slate-800;
+    li {
+      @apply ml-6;
+    }
+  }
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+
+  pre {
+    @apply text-slate-300;
+    @apply bg-slate-800;
+    @apply p-3;
+    @apply rounded-md;
+  }
+}
