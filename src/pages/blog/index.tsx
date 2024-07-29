@@ -7,8 +7,6 @@ import Category from "../../components/category";
 const BlogPage = ({ data, location, pageContext }: PageProps & { data: { categories: { distinct: String[] }; posts: { nodes: { frontmatter: { slug: String; title: String } }[] } } }) => {
   console.log(location, pageContext);
 
-
-
   return (
     <Layout>
       <p>blog 主页面</p>

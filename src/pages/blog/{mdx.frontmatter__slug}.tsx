@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import "./post.less"
+import "./post.scss"
 
 type MdxType = {
   frontmatter: {
@@ -14,7 +14,7 @@ const BlogPost = ({ data, children }: { data: { mdx: MdxType }; children: React.
     <div>
       <div>{data.mdx.frontmatter.title}</div>
       <p>{data.mdx.frontmatter.date}</p>
-      <div className="preview">{children}</div>
+      <div id="preview">{children}</div>
     </div>
   );
 };

@@ -24,6 +24,8 @@ const config: GatsbyConfig = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
+              disableBgImage: true,
+              wrapperStyle: `height: "auto"`,
             },
           },
         ],
@@ -33,8 +35,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blogs",
-        // path: `${__dirname}/ob-blogs2/`,
-        path: path.resolve(__dirname, "../ob-blogs/"),
+        // path: path.resolve(__dirname, "../ob-blogs/"),
+        path: path.resolve(__dirname, "../../my_blogs/my_blogs/"),
         ignore: ["**/.obsidian", "**/.git", "**/Templates"],
         fastHash: true,
       },
